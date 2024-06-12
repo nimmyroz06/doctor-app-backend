@@ -6,7 +6,7 @@ const schema=mongoose.Schema(
         "mob":{type:String,required:true},
         "email":{type:String,required:true},
         "place":{type:String,required:true},
-        "hname":{type:String,required:true},
+        "hname":{type:String,required:true}
     }
 )
 
