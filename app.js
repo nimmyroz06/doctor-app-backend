@@ -17,6 +17,28 @@ app.post("/",(req,res)=>{
     res.json({"status":"success"})
 })
 
+app.post("/search",(req,res)=>{
+    let input=req.body
+    doctormodel.find(input).then(
+        (data)=>{
+            res.json(data)
+        }
+    )
+})
+
+app.post("/delete",(req,res)=>{
+    let input=req.body
+    doctormodel.findByIdAndDelete(input._id).then(
+        (response)=>{
+            res.json({"status":"success"})
+        }
+    ).catch(
+        (error)=>{
+            res.json({"status":"error"})
+        }
+    )
+})
+
 app.get("/view",(req,res)=>{
     doctormodel.find().then(
         (data)=>{
